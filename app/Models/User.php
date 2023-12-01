@@ -33,4 +33,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Property::class);
     }
+
+    public function listings()
+    {
+        return $this->hasManyThrough(Listing::class, Property::class, 'user_id', 'property_id', 'id', 'id');
+    }
 }
