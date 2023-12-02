@@ -1,6 +1,11 @@
-<header class="bg-secondary-600 text-white py-4">
-    <div class="container flex justify-between">
-        <a href="{{ route('home') }}">Logo</a>
+<header class="bg-secondary-600 py-4">
+<div class="container">
+    <div class="flex justify-between text-white">
+        <div>
+            <a href="{{ route('home') }}">
+                <x-logo class="w-auto h-8 text-primary-600" />
+            </a>
+        </div>
         <nav>
             @if (Route::has('login'))
                 <div class="flex gap-2">
@@ -21,4 +26,21 @@
             @endif
         </nav>
     </div>
+    <form class="bg-secondary-300 p-1 rounded mt-8">
+        <div class="grid grid-cols-1 lg:grid-cols-8 gap-1">
+            <div class="lg:col-span-3">
+                <input type="" name="" class="w-full block h-10 rounded">
+            </div>
+            <div class="lg:col-span-2">
+                <input type="" name="" class="w-full block h-10 rounded">
+            </div>
+            <div class="lg:col-span-2">
+                <input type="" name="" class="w-full block h-10 rounded">
+            </div>
+            <div class="lg:col-span-1">
+                <button type="submit" class="w-full block h-10 rounded bg-primary-500 hover:bg-primary-400 text-white">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
 </header>
