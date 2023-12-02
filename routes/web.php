@@ -9,6 +9,7 @@ use App\Livewire\Auth\Passwords\Reset;
 use App\Livewire\Auth\Register;
 use App\Livewire\Auth\Verify;
 use App\Livewire\CreateProperty;
+use App\Livewire\IndexListing;
 use App\Livewire\OwnerDashboard;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +57,8 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', LogoutController::class)
         ->name('logout');
 });
+
+Route::get('s', IndexListing::class)->name('listings.index');
 
 Route::prefix('owner')->middleware('auth')->group(function () {
     Route::get('dashboard', OwnerDashboard::class)->name('owner.dashboard');

@@ -26,7 +26,7 @@
             @endif
         </nav>
     </div>
-    <form class="bg-secondary-300 p-1 rounded mt-8">
+    <form method="GET" action="{{ route('listings.index') }}" class="bg-secondary-300 p-1 rounded mt-8">
         <div class="grid grid-cols-1 lg:grid-cols-8 gap-1">
             <div class="lg:col-span-3">
                 <input type="" name="" class="w-full block h-10 rounded">
