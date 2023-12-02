@@ -3,9 +3,13 @@
         <a href="{{ route('home') }}">Logo</a>
         <nav>
             @if (Route::has('login'))
-                <div>
+                <div class="flex gap-2">
                     @auth
-                        <a href="{{ route('home') }}">Home</a>
+                        <a href="{{ route('owner.dashboard') }}">Dashboard</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit">Log Out</button>
+                        </form>
                     @else
                         <a href="{{ route('login') }}" class="btn btn-sm btn-secondary">Log in</a>
 
