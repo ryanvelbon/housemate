@@ -1,6 +1,31 @@
 <div class="container lg:grid lg:grid-cols-4 gap-8 mt-8">
-    <aside class="hidden lg:block lg:col-span-1 bg-gray-100">
-        filters
+    <aside class="hidden lg:block lg:col-span-1 bg-gray-100 p-4">
+        <h2>filters</h2>
+        <form>
+            <div class="mt-4">
+                <label class="block text-sm font-medium text-gray-700" for="country">Country*</label>
+                <select wire:model.live="country" id="country"
+                        class="mt-2 w-full rounded-lg border border-gray-400 py-2 pr-4 pl-2 text-sm focus:border-blue-400 focus:outline-none sm:text-base" required>
+                    <option value="">-- choose country --</option>
+                    @foreach ($countries as $country)
+                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="mt-4">
+                <label class="block text-sm font-medium text-gray-700" for="city">City*</label>
+                <select wire:model.live="city" id="city"
+                        class="mt-2 w-full rounded-lg border border-gray-400 py-2 pr-4 pl-2 text-sm focus:border-blue-400 focus:outline-none sm:text-base" required>
+                    @if ($cities->count() == 0)
+                        <option value="">-- choose country first --</option>
+                    @endif
+                    @foreach ($cities as $city)
+                        <option value="{{ $city->id }}">{{ $city->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </form>
     </aside>
     <main class="lg:col-span-3">
         <div wire:loading>Loading...</div>
