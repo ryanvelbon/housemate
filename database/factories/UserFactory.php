@@ -18,7 +18,7 @@ class UserFactory extends Factory
         $cities = collect(City::whereNotNull('order')->pluck('id'));
 
         return [
-            'name' => fake()->name(),
+            'name' => fake()->firstName() . ' ' . fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
