@@ -16,4 +16,12 @@ class City extends Model
     {
         return $this->belongsTo(State::class);
     }
+
+    /**
+     * Retrieves all users who are living in this city.
+     */
+    public function members()
+    {
+        return $this->hasMany(User::class, 'city_id');
+    }
 }

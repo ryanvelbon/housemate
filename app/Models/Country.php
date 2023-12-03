@@ -15,4 +15,12 @@ class Country extends Model
     {
         return $this->hasMany(City::class);
     }
+
+    /**
+     * Retrieves all users who are living in this country.
+     */
+    public function members()
+    {
+        return $this->hasManyThrough(User::class, City::class);
+    }
 }
