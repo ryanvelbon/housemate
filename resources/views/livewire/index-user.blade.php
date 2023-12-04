@@ -3,9 +3,9 @@
         <h2>filters</h2>
         <form>
             <div class="mt-4">
-                <label class="block text-sm font-medium text-gray-700" for="country">Country*</label>
+                <label class="block text-sm font-medium text-gray-700" for="country">Country</label>
                 <select wire:model.live="country" id="country"
-                        class="mt-2 w-full rounded-lg border border-gray-400 py-2 pr-4 pl-2 text-sm focus:border-blue-400 focus:outline-none sm:text-base" required>
+                        class="mt-2 w-full rounded-lg border border-gray-400 py-2 pr-4 pl-2 text-sm focus:border-blue-400 focus:outline-none sm:text-base">
                     <option value="">-- choose country --</option>
                     @foreach ($countries as $country)
                         <option value="{{ $country->id }}">{{ $country->name }}</option>
@@ -14,14 +14,25 @@
             </div>
 
             <div class="mt-4">
-                <label class="block text-sm font-medium text-gray-700" for="city">City*</label>
+                <label class="block text-sm font-medium text-gray-700" for="city">City</label>
                 <select wire:model.live="city" id="city"
-                        class="mt-2 w-full rounded-lg border border-gray-400 py-2 pr-4 pl-2 text-sm focus:border-blue-400 focus:outline-none sm:text-base" required>
+                        class="mt-2 w-full rounded-lg border border-gray-400 py-2 pr-4 pl-2 text-sm focus:border-blue-400 focus:outline-none sm:text-base">
                     @if ($cities->count() == 0)
                         <option value="">-- choose country first --</option>
                     @endif
                     @foreach ($cities as $city)
                         <option value="{{ $city->id }}">{{ $city->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="mt-12">
+                <label class="block text-sm font-medium text-gray-700" for="city">Nationality</label>
+                <select wire:model.live="nationality" id="nationality"
+                        class="mt-2 w-full rounded-lg border border-gray-400 py-2 pr-4 pl-2 text-sm focus:border-blue-400 focus:outline-none sm:text-base">
+                    <option value="">-- choose nationality --</option>
+                    @foreach ($nationalities as $nationality)
+                        <option value="{{ $nationality->id }}">{{ $nationality->name }}</option>
                     @endforeach
                 </select>
             </div>
