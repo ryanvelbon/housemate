@@ -43,6 +43,13 @@ class IndexUser extends Component
         $this->city = $this->cities->first()->id ?? null;
     }
 
+    public function resetFilters(): void
+    {
+        $this->cities = collect();
+
+        $this->reset('city', 'country', 'nationality');
+    }
+
     public function render(): View
     {
         $members = User::query()

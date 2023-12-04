@@ -82,8 +82,9 @@
                     </li>
                 </a>
             @empty
-                <div>
-                    No results.
+                <div class="h-96 bg-gray-200 text-gray-700 col-span-3 flex flex-col gap-8 items-center justify-center">
+                    <p>No results.</p>
+                    <button type="button" wire:click="resetFilters" class="btn btn-secondary">Reset Filters</button>
                 </div>
             @endforelse
         </ul>
