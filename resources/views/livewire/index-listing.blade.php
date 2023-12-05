@@ -1,6 +1,12 @@
 <div class="container lg:grid lg:grid-cols-4 gap-8 mt-8">
     <aside class="hidden lg:block lg:col-span-1 bg-gray-100">
-        filters
+
+        <a href="#listing-filters-modal">Show Filters</a>
+
+        <x-modal name="listing-filters-modal">
+            Filter your search.
+        </x-modal>
+
     </aside>
     <main class="lg:col-span-3">
         <div wire:loading>Loading...</div>
