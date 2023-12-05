@@ -7,6 +7,7 @@ module.exports = {
             colors: {
                 primary: colors.orange,
                 secondary: colors.slate,
+                muted: colors.gray,
                 success: colors.green,
                 danger: colors.red,
                 warning: colors.orange,

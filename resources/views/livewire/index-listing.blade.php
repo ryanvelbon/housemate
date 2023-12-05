@@ -1,26 +1,30 @@
 <div class="container">
-    <aside class="bg-gray-100">
-        <a href="#listing-filters-modal">Show Filters</a>
+    <aside class="bg-gray-100 h-12 flex items-center">
+        <a href="#listing-filters-modal" class="btn btn-sm btn-outline-muted">
+            <i class="fa-regular fa-filter mr-1"></i>
+            <span>Filters</span>
+        </a>
     </aside>
     <main>
         <div wire:loading>Loading...</div>
 
-        <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-4 gap-y-8 sm:mx-0 sm:max-w-none sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div class="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-4 gap-y-8 sm:mx-0 sm:max-w-none sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             @forelse($listings as $listing)
                 <a href="#">
                     <article class="shadow-md hover:shadow-lg border-gray-500 border hover:border-2">
                         <div class="relative w-full">
                             <img src="https://placehold.co/600x400" alt="" class="w-full aspect-[3/2]">
                         </div>
-                        <div class="max-w-xl px-4 py-2">
-                            <!--
-                            <div class="flex items-center gap-x-4 text-xs">
-                                <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
-                                <span class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600">Marketing</span>
+                        <div class="px-4 pt-2 pb-4">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="relative z-10 bg-gray-200 px-2 py-1 font-medium text-gray-600">
+                                    <i class="fa-regular fa-location-dot mr-1"></i>
+                                    Kuala Lumpur
+                                </span>
+                                <div class="text-base font-semibold bg-black text-white px-2 py-1 -mr-4 -mt-10 z-10">RM 1400</div>
                             </div>
-                            -->
                             <div class="group relative">
-                                <h3 class="mt-1 text-base font-semibold leading-6 text-gray-900">
+                                <h3 class="mt-1 text-base font-semibold leading-6 text-gray-900 truncate">
                                     {{ $listing->place_type->label() }} in {{ $listing->property->type->label() }}
                                 </h3>
                             </div>
@@ -43,7 +47,7 @@
                             </div>
                             <div class="relative mt-4 flex items-center gap-x-4">
                                 <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="" class="h-10 w-10 rounded-full bg-gray-100">
-                                <div class="text-sm leading-6">
+                                <div class="text-sm">
                                     <p class="font-semibold text-gray-900">
                                         <span class="absolute inset-0"></span>
                                         Michael
