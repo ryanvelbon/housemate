@@ -4,41 +4,65 @@
     </aside>
     <main>
         <div wire:loading>Loading...</div>
-        <ul class="flex flex-col gap-4">
+
+        <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-4 gap-y-8 sm:mx-0 sm:max-w-none sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             @forelse($listings as $listing)
                 <a href="#">
-                    <li class="flex flex-col md:flex-row bg-white shadow-md hover:shadow-lg">
-                        <img class=" w-full h-96 md:h-auto object-cover md:w-64" src="https://placehold.co/400" alt="" />
-                        <div class="flex flex-col justify-between w-full px-6 py-3">
-                            <div>
-                                <h3 class="text-gray-900 text-xl font-bold mb-2">{{ $listing->place_type->label() }} in {{ $listing->property->type->label() }}</h3>
-                                <p>
-                                    {{ $listing->title }}
-                                </p>
-                                <p class="text-gray-600 text-xs">{{ $listing->property->address }}</p>
+                    <article class="shadow-md hover:shadow-lg border-gray-500 border hover:border-2">
+                        <div class="relative w-full">
+                            <img src="https://placehold.co/600x400" alt="" class="w-full aspect-[3/2]">
+                        </div>
+                        <div class="max-w-xl px-4 py-2">
+                            <!--
+                            <div class="flex items-center gap-x-4 text-xs">
+                                <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+                                <span class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600">Marketing</span>
                             </div>
-                            <div class="grid grid-cols-4 text-gray-600 text-center">
+                            -->
+                            <div class="group relative">
+                                <h3 class="mt-1 text-base font-semibold leading-6 text-gray-900">
+                                    {{ $listing->place_type->label() }} in {{ $listing->property->type->label() }}
+                                </h3>
+                            </div>
+                            <div class="mt-3 grid grid-cols-4 text-gray-600">
                                 <div>
-                                    <i class="fa-regular fa-shower mr-2"></i>
-                                    {{ $listing->property->n_bathrooms }}
+                                    <div>
+                                        <i class="fa-regular fa-shower"></i>
+                                        {{ $listing->property->n_bathrooms }}
+                                    </div>
+                                    <div>
+                                        <i class="fa-regular fa-bed"></i>
+                                        {{ $listing->property->n_bedrooms }}
+                                    </div>
                                 </div>
-                                <div>
-                                    <i class="fa-regular fa-bed mr-2"></i>
-                                    {{ $listing->property->n_bedrooms }}
+                                <div class="col-span-3 flex space-x-4 items-center bg-gray-50 px-4 py-2 rounded-xl border border-gray-200">
+                                    <i class="fa-regular fa-water-ladder"></i>
+                                    <i class="fa-regular fa-air-conditioner"></i>
+                                    <i class="fa-regular fa-tv-retro"></i>
                                 </div>
-                                <div>foo</div>
-                                <div>foo</div>
+                            </div>
+                            <div class="relative mt-4 flex items-center gap-x-4">
+                                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="" class="h-10 w-10 rounded-full bg-gray-100">
+                                <div class="text-sm leading-6">
+                                    <p class="font-semibold text-gray-900">
+                                        <span class="absolute inset-0"></span>
+                                        Michael
+                                    </p>
+                                    <p class="text-gray-600">Co-Founder / CTO</p>
+                                </div>
                             </div>
                         </div>
-                    </li>
+                    </article>
                 </a>
             @empty
                 <div>
                     No results.
                 </div>
             @endforelse
-        </ul>
-        {{ $listings->links() }}
+        </div>
+        <div class="my-8">
+            {{ $listings->links() }}
+        </div>
     </main>
     <x-modal name="listing-filters-modal" width="3xl">
         Filter your search.

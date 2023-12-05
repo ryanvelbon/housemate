@@ -12,7 +12,7 @@ class IndexListing extends Component
 
     public function render()
     {
-        $listings = Listing::with('property')->paginate(10);
+        $listings = Listing::with('property')->paginate(12);
 
         return view('livewire.index-listing', [
             'listings' => $listings,
