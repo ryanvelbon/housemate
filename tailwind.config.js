@@ -33,6 +33,12 @@ module.exports = {
         './resources/**/*.vue',
         './resources/**/*.twig',
     ],
+    safelist: [
+        {
+          pattern: /max-w-(xs|sm|md|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|full)/,
+          variants: ['sm'],
+        },
+    ],
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),

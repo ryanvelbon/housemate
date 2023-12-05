@@ -1,14 +1,8 @@
-<div class="container lg:grid lg:grid-cols-4 gap-8 mt-8">
-    <aside class="hidden lg:block lg:col-span-1 bg-gray-100">
-
+<div class="container">
+    <aside class="bg-gray-100">
         <a href="#listing-filters-modal">Show Filters</a>
-
-        <x-modal name="listing-filters-modal">
-            Filter your search.
-        </x-modal>
-
     </aside>
-    <main class="lg:col-span-3">
+    <main>
         <div wire:loading>Loading...</div>
         <ul class="flex flex-col gap-4">
             @forelse($listings as $listing)
@@ -46,4 +40,7 @@
         </ul>
         {{ $listings->links() }}
     </main>
+    <x-modal name="listing-filters-modal" width="3xl">
+        Filter your search.
+    </x-modal>
 </div>

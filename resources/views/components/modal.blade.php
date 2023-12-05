@@ -1,4 +1,7 @@
-@props(['name'])
+@props([
+    'name',
+    'width' => 'sm',
+])
 
 <div
     x-data="{ open: false }"
@@ -25,7 +28,7 @@
         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <!-- Modal panel, show/hide based on modal state. -->
             <div
-                class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6"
+                class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-{{$width}} sm:p-6"
                 x-show="open"
                 @click.outside="location.hash = '#'"
                 x-transition:enter="ease-out duration-300"
