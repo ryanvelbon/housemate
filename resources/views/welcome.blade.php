@@ -8,7 +8,7 @@
     <div class="container">
         <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             @foreach($cities as $city)
-                <a href="#">
+                <a wire:navigate href="{{ route('listings.index', ['city' => $city, 'slug' => $city->slug]) }}">
                     <li class="bg-gray-700 h-40 flex flex-col gap-1 justify-center items-center rounded-lg">
                         <span class="text-xs text-gray-500">{{ $city->state->name }}</span>
                         <h4 class="text-2xl font-semibold text-white">{{ $city->name }}</h4>

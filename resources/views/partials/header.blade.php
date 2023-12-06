@@ -2,7 +2,7 @@
 <div class="container">
     <div class="flex justify-between text-white">
         <div>
-            <a href="{{ route('home') }}">
+            <a wire:navigate href="{{ route('home') }}">
                 <x-logo class="w-auto h-8 text-primary-600" />
             </a>
         </div>
@@ -26,13 +26,13 @@
             @endif
         </nav>
     </div>
-    <form method="GET" action="{{ route('listings.index') }}" class="bg-secondary-300 p-1 rounded mt-8">
+    <form method="GET" action="{{ route('listings.index', ['city' => 0]) }}" class="bg-secondary-300 p-1 rounded mt-8">
         <div class="grid grid-cols-1 lg:grid-cols-8 gap-1">
             <div class="lg:col-span-3">
                 <input type="" name="" class="w-full block h-10 rounded">
             </div>
             <div class="lg:col-span-2">
-                <input type="" name="" class="w-full block h-10 rounded">
+                <input type="" name="" class="w-full block h-10 rounded" required>
             </div>
             <div class="lg:col-span-2">
                 <input type="" name="" class="w-full block h-10 rounded">

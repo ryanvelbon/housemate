@@ -1,5 +1,9 @@
 <div class="container">
-    <aside class="bg-gray-100 h-12 flex items-center">
+    <aside class="bg-gray-100 h-12 flex justify-between items-center">
+        <div>
+            {{ $listings->total() }} rooms in
+            <span class="font-semibold">{{ $city->name }}, {{ $city->country->name }}</span>
+        </div>
         <a href="#listing-filters-modal" class="btn btn-sm btn-outline-muted">
             <i class="fa-regular fa-filter mr-1"></i>
             <span>Filters</span>

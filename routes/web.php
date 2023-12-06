@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
 });
 
-Route::get('s', IndexListing::class)->name('listings.index');
+Route::get('s/{city:id}/{slug?}', IndexListing::class)->name('listings.index');
 Route::get('members', IndexUser::class)->name('users.index');
 
 Route::prefix('owner')->middleware('auth')->group(function () {

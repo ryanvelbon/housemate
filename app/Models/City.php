@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Host;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class City extends Model
 {
@@ -33,5 +34,10 @@ class City extends Model
     public function listings()
     {
         return $this->hasManyThrough(Listing::class, Property::class, 'city_id', 'property_id');
+    }
+
+    public function getSlugAttribute()
+    {
+        return Str::slug($this->name) . '--' . Str::slug($this->state->name) . '--' . Str::slug($this->country->name);
     }
 }
