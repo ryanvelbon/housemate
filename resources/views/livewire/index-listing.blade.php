@@ -19,7 +19,7 @@
                             <div class="flex items-center justify-between text-xs">
                                 <span class="relative z-10 bg-gray-200 px-2 py-1 font-medium text-gray-600">
                                     <i class="fa-regular fa-location-dot mr-1"></i>
-                                    Kuala Lumpur
+                                    <span class="truncate">{{ $listing->property->city->name }}</span>
                                 </span>
                                 <div class="text-base font-semibold bg-black text-white px-2 py-1 -mr-4 -mt-10 z-10">RM 1400</div>
                             </div>

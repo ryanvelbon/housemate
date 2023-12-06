@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\PropertyType;
+use App\Models\City;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -12,6 +13,7 @@ class PropertyFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
+            'city_id' => City::whereNotNull('order')->inRandomOrder()->first()->id,
             'address' => str_replace("\n",", ",fake()->address()),
             'type' => PropertyType::random(),
             'size' => rand(50,200),

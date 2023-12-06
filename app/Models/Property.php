@@ -35,4 +35,9 @@ class Property extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class);
+    }
 }
