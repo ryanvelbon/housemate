@@ -24,4 +24,14 @@ class City extends Model
     {
         return $this->hasMany(User::class, 'city_id');
     }
+
+    public function properties()
+    {
+        return $this->hasMany(Property::class);
+    }
+
+    public function listings()
+    {
+        return $this->hasManyThrough(Listing::class, Property::class, 'city_id', 'property_id');
+    }
 }
