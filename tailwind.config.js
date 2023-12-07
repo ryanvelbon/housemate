@@ -14,7 +14,10 @@ module.exports = {
                 info: colors.gray,
             },
             fontFamily: {
-                sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+                mono: ['"M PLUS 1 Code"', ...defaultTheme.fontFamily.mono],
+                sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+                script: ['"Architects Daughter"'],
+                serif: ['"Zen Maru Gothic"', ...defaultTheme.fontFamily.serif],
             },
         },
     },
