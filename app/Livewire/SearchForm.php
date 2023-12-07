@@ -3,13 +3,21 @@
 namespace App\Livewire;
 
 use App\Models\City;
+use Livewire\Attributes\Computed;
 use Livewire\Component;
 
 class SearchForm extends Component
 {
     public $search = '';
+    public $selectedCityId = null;
 
     public $cities = [];
+
+    #[Computed]
+    public function selectedCity()
+    {
+        return City::find($this->selectedCityId);
+    }
 
     public function updatedSearch($value)
     {
