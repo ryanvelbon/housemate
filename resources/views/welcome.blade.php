@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div>
-    This is the welcome page.
-</div>
+<section>
+    <!--  -->
+</section>
 <section>
     <div class="container">
-        <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <h3 class="text-3xl font-bold mt-8">Popular Cities</h3>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-16">
             @foreach($cities as $city)
                 <a wire:navigate href="{{ route('listings.index', ['city' => $city, 'slug' => $city->slug]) }}">
                     <li class="bg-gray-700 h-40 flex flex-col gap-1 justify-center items-center rounded-lg">

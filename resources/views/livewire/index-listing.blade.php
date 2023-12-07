@@ -15,7 +15,7 @@
         <div class="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-4 gap-y-8 sm:mx-0 sm:max-w-none sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             @forelse($listings as $listing)
                 <a href="#">
-                    <article class="shadow-md hover:shadow-lg border-gray-500 border hover:border-2">
+                    <article class="shadow-md hover:shadow-lg border-gray-500 border hover:border-2 bg-white">
                         <div class="relative w-full">
                             <img src="https://placehold.co/600x400" alt="" class="w-full aspect-[3/2]">
                         </div>

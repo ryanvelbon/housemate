@@ -1,4 +1,4 @@
-<header class="bg-secondary-600 py-4">
+<header class="bg-secondary-300 py-4">
 <div class="container">
     <div class="flex justify-between text-white">
         <div>
@@ -26,6 +26,18 @@
             @endif
         </nav>
     </div>
+    @if(Route::currentRouteName() == 'home')
+        <div class="my-12 grid grid-cols-1 md:grid-cols-2 gap-y-12">
+            <div class="flex flex-col justify-center">
+                <h2 class="text-base font-mono font-semibold uppercase text-primary-500">Flat-sharing made easy</h2>
+                <h1 class="mt-2 text-5xl font-bold text-primary-700">Find your new home<br>in South East Asia</h1>
+                <p class="mt-6 text-lg text-gray-600 leading-tight">Whether you're relocating for work or study, or you're a digital nomad in search of your next destination, finding a place that feels like home has never been easier.</p>
+            </div>
+            <div class="flex justify-center">
+                <img src="https://placehold.co/450x300">
+            </div>
+        </div>
+    @endif
     <livewire:search-form />
 </div>
 </header>

@@ -1,4 +1,4 @@
-<div class="container lg:grid lg:grid-cols-4 gap-8 mt-8">
+<div class="container lg:grid lg:grid-cols-4 gap-8 pt-8">
     <aside class="hidden lg:block lg:col-span-1 bg-gray-100 p-4">
         <h2>filters</h2>
         <form>
@@ -43,7 +43,7 @@
         <ul wire:loading.class="opacity-50" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
             @forelse($members as $member)
                 <a href="#">
-                    <li class="shadow-md hover:shadow-lg">
+                    <li class="bg-white shadow-md hover:shadow-lg">
                         @if($member->sex)
                             @if($member->sex === 'm')
                                 <img class="aspect-[3/2] w-full object-cover" src="{{ 'https://randomuser.me/api/portraits/men/' . $member->id % 100 . '.jpg' }}" alt="">
