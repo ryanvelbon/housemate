@@ -71,7 +71,7 @@
                 <div class="relative inline-block w-full">
                     <div class="w-full">
                         <button x-ref="moveInMonth" @click="open = !open" type="button" class="flex items-center justify-between w-full rounded-md border-0 bg-white py-1.5 pl-6 pr-3 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-10" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                            <span class="whitespace-nowrap">Move-in month</span>
+                            <span class="whitespace-nowrap">{{ $this->moveInDateText }}</span>
                             <i class="fa-solid fa-chevron-down fa-sm"></i>
                         </button>
                     </div>
@@ -87,10 +87,25 @@
                         class="absolute z-30 mt-2 left-1/2 transform -translate-x-1/2 w-full lg:w-[48rem] rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1"
                     >
                         <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 p-4">
-                            @for($i=0; $i<12; $i++)
-                                <li class="flex flex-col justify-center items-center h-24 rounded-md bg-gray-100 cursor-pointer hover:bg-gray-200">
-                                    <span class="text-xs">2024</span>
-                                    <span class="text-sm">January</span>
+                            @php
+                                $currentMonth = new DateTime();
+                            @endphp
+
+                            @for ($i = 0; $i < 12; $i++)
+                                @php
+                                    $month = clone $currentMonth;
+                                    $month->add(new DateInterval('P' . $i . 'M'));
+                                @endphp
+
+                                <li
+                                    @click="
+                                        @this.set('moveInDate', '{{ $month->format('Y-m') }}-01')
+                                        open = false
+                                    "
+                                    class="flex flex-col justify-center items-center h-24 rounded-md bg-gray-100 cursor-pointer hover:bg-gray-200"
+                                >
+                                    <span class="text-xs">{{ $month->format('Y') }}</span>
+                                    <span class="text-sm">{{ $month->format('F') }}</span>
                                 </li>
                             @endfor
                         </ul>

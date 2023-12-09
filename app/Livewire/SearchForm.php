@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\City;
+use Carbon\Carbon;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 
@@ -10,6 +11,7 @@ class SearchForm extends Component
 {
     public $search = '';
     public $selectedCityId = null;
+    public $moveInDate = null;
 
     public $cities = [];
 
@@ -17,6 +19,14 @@ class SearchForm extends Component
     public function selectedCity()
     {
         return City::find($this->selectedCityId);
+    }
+
+    #[Computed]
+    public function moveInDateText()
+    {
+        return $this->moveInDate
+            ? Carbon::createFromFormat('Y-m-d', $this->moveInDate)->format('F Y')
+            : 'Move-in Month';
     }
 
     public function updatedSearch($value)
