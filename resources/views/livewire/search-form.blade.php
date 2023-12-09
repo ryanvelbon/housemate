@@ -12,7 +12,9 @@
                             wire:model.live.debounce.300ms="search"
                             x-ref="search"
                             x-on:focus="showCityOptions = true"
-                            type="text" spellcheck="false" autocomplete="off" placeholder="Search by city, state or country" class="w-full rounded-md border-0 bg-white py-1.5 pl-6 pr-16 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-10" role="combobox" aria-controls="options" aria-expanded="false"
+                            type="text" spellcheck="false" autocomplete="off" role="combobox" aria-controls="options" aria-expanded="false"
+                            placeholder="Search by city, state or country"
+                            class="w-full rounded-md border-0 bg-white py-1.5 pl-6 pr-16 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-10"
                         >
                         <button
                             type="button" class="absolute inset-y-0 right-0 flex items-center rounded-r-md pr-6 focus:outline-none"
@@ -25,7 +27,7 @@
                             <i class="fa-duotone fa-circle-xmark fa-xl"></i>
                         </button>
 
-                        <ul x-show="showCityOptions" class="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm" id="options" role="listbox">
+                        <ul x-show="showCityOptions" class="absolute z-30 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm" id="options" role="listbox">
                             <!--
                                 Combobox option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
 
@@ -36,7 +38,7 @@
                                     x-on:click="
                                         $wire.set('search', '{{ $city->name }}')
                                         $wire.set('selectedCityId', '{{ $city->id }}')
-                                        $refs.moveInDate.focus()
+                                        $refs.moveInMonth.focus()
                                     "
                                     class="relative cursor-default select-none py-2 pl-3 pr-9 hover:bg-gray-200" id="option-{{ $city->id }}" role="option" tabindex="-1"
                                 >
@@ -65,17 +67,48 @@
                     </div>
                 </div>
             </div>
-            <div class="lg:col-span-2">
-                <input
-                    x-ref="moveInDate"
-                    type="" name="" class="w-full block h-10 rounded"
-                >
+            <div x-data="{ open: false }" class="lg:col-span-2">
+                <div class="relative inline-block w-full">
+                    <div class="w-full">
+                        <button x-ref="moveInMonth" @click="open = !open" type="button" class="flex items-center justify-between w-full rounded-md border-0 bg-white py-1.5 pl-6 pr-3 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-10" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                            <span class="whitespace-nowrap">Move-in month</span>
+                            <i class="fa-solid fa-chevron-down fa-sm"></i>
+                        </button>
+                    </div>
+                    <div
+                        x-show="open"
+                        @click.outside="open = false"
+                        x-transition:enter="transition ease-out duration-100"
+                        x-transition:enter-start="transform opacity-0 scale-95"
+                        x-transition:enter-end="transform opacity-100 scale-100"
+                        x-transition:leave="transition ease-in duration-75"
+                        x-transition:leave-start="transform opacity-100 scale-100"
+                        x-transition:leave-end="transform opacity-0 scale-95"
+                        class="absolute z-30 mt-2 left-1/2 transform -translate-x-1/2 w-full lg:w-[48rem] rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1"
+                    >
+                        <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 p-4">
+                            @for($i=0; $i<12; $i++)
+                                <li class="flex flex-col justify-center items-center h-24 rounded-md bg-gray-100 cursor-pointer hover:bg-gray-200">
+                                    <span class="text-xs">2024</span>
+                                    <span class="text-sm">January</span>
+                                </li>
+                            @endfor
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="lg:col-span-2">
-                <input type="" name="" class="w-full block h-10 rounded">
+                <select class="w-full rounded-md border-0 bg-white py-1.5 pl-6 pr-16 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-lg sm:leading-10">
+                    <option value="30">1 month</option>
+                    <option value="60">2 months</option>
+                    <option value="90">3 months</option>
+                    <option value="182">6 months</option>
+                    <option value="365">1 year</option>
+                    <option value="730">2 years</option>
+                </select>
             </div>
             <div class="lg:col-span-1">
-                <button type="submit" class="w-full block h-10 rounded bg-primary-500 hover:bg-primary-400 text-white">Search</button>
+                <button type="submit" class="w-full block h-10 lg:h-full rounded bg-primary-500 hover:bg-primary-400 text-white">Search</button>
             </div>
         </div>
     </form>

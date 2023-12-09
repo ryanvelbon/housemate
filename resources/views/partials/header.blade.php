@@ -27,7 +27,7 @@
         </nav>
     </div>
     @if(Route::currentRouteName() == 'home')
-        <div class="my-12 grid grid-cols-1 md:grid-cols-2 gap-y-12">
+        <div class="mt-12 mb-8 grid grid-cols-1 md:grid-cols-2 gap-y-12">
             <div class="flex flex-col justify-center">
                 <h2 class="text-2xl font-script text-primary-500">Flat-sharing made easy</h2>
                 <h1 class="mt-2 text-5xl font-bold text-primary-700">Find your new home<br>in South East Asia</h1>
@@ -38,6 +38,8 @@
             </div>
         </div>
     @endif
-    <livewire:search-form />
+    <div class="mt-4">
+        <livewire:search-form />
+    </div>
 </div>
 </header>
