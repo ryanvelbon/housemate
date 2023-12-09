@@ -35,6 +35,7 @@ class SearchForm extends Component
                           });
                 })
                 ->orderBy('order', 'asc')
+                ->take(10)
                 ->get();
         } else {
             $this->cities = [];
