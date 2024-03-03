@@ -26,6 +26,7 @@ class Listing extends Model
         'max_n_nights',
         'instant_book',
         'self_checkin',
+        'feat_img',
     ];
 
     protected $casts = [

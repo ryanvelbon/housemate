@@ -11,10 +11,24 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        $users = User::factory(10)->create();
+        $users = User::factory(100)->create();
 
-        $properties = Property::factory(20)->recycle($users)->create();
+        $properties = Property::factory(300)->recycle($users)->create();
 
-        $listings = Listing::factory(100)->recycle($properties)->create();
+        $listings = Listing::factory(5000)->recycle($properties)->create();
+
+        $nFakeUserImages = 100;
+
+        foreach ($users as $index => $user) {
+            $user->avatar = 'user' . ($index % $nFakeUserImages + 1) . '.png';
+            $user->save();
+        }
+
+        $nFakeBedImages = 120;
+
+        foreach ($listings as $index => $listing) {
+            $listing->feat_img = 'bed' . ($index % $nFakeBedImages + 1) . '.png';
+            $listing->save();
+        }
     }
 }

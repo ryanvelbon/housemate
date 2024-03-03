@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('max_n_nights');
             $table->boolean('instant_book')->default(0);
             $table->boolean('self_checkin')->default(0);
+            $table->text('feat_img')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

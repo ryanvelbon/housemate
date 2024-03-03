@@ -36,8 +36,14 @@ Now run your migrations.
 
     $ php artisan migrate
 
+## Create sample data (optional)
+
     $ php artisan db:seed
 
+In `/storage/app/public`.
+
+Add fake profile pics named `user1.png`, `user2.png`, etc.
+Add fake listing pics named `bed1.png`, `bed2.png`, etc.
 
 # Features
 

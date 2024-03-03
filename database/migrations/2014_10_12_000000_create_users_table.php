@@ -19,6 +19,7 @@ return new class extends Migration
             $table->softDeletes();
 
             // Profile columns
+            $table->text('avatar')->nullable();
             $table->date('dob')->nullable();
             $table->char('sex', 1)->nullable();
             $table->unsignedMediumInteger('nationality_id')->nullable();
