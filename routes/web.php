@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\ListingController;
 use App\Http\Controllers\PageController;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Passwords\Confirm;
@@ -61,6 +62,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('s/{city:id}/{slug?}', IndexListing::class)->name('listings.index');
+Route::get('/listings/{listing}', [ListingController::class, 'show'])->name('listings.show');
 Route::get('members', IndexUser::class)->name('users.index');
 
 Route::prefix('owner')->middleware('auth')->group(function () {
