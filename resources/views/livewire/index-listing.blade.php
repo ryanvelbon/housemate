@@ -56,7 +56,7 @@
                                         <span class="absolute inset-0"></span>
                                         {{ $listing->property->owner->name }}
                                     </p>
-                                    <p class="text-gray-600">Co-Founder / CTO</p>
+                                    <p class="text-gray-600">{{ $listing->property->owner->profession }}</p>
                                 </div>
                             </div>
                         </div>

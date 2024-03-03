@@ -11,11 +11,13 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        $users = User::factory(100)->create();
+        $nUsers= 1000;
 
-        $properties = Property::factory(300)->recycle($users)->create();
+        $users = User::factory($nUsers)->create();
 
-        $listings = Listing::factory(5000)->recycle($properties)->create();
+        $properties = Property::factory($nUsers * 2)->recycle($users)->create();
+
+        $listings = Listing::factory($nUsers * 3)->recycle($properties)->create();
 
         $nFakeUserImages = 100;
 

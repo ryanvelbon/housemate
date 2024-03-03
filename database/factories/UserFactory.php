@@ -14,6 +14,7 @@ class UserFactory extends Factory
 
     public function definition(): array
     {
+        $professions = collect(['Teacher', 'Student', 'Digital Marketer', 'Software Developer', 'Chef', 'Cashier', 'Receptionist', 'Retail', 'Dentist', 'Engineer']);
         $countries = collect([75, 82, 107, 182, 207, 232]);
         $cities = collect(City::whereNotNull('order')->pluck('id'));
 
@@ -28,6 +29,7 @@ class UserFactory extends Factory
             'nationality_id' => $countries->random(),
             'city_id' => $cities->random(),
             'bio' => fake()->paragraph(),
+            'profession' => $professions->random(),
         ];
     }
 

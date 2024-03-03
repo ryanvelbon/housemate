@@ -25,6 +25,7 @@ return new class extends Migration
             $table->unsignedMediumInteger('nationality_id')->nullable();
             $table->unsignedMediumInteger('city_id')->nullable();
             $table->text('bio')->nullable();
+            $table->string('profession', 50)->nullable();
 
             // foreign key constraints
             $table->foreign('nationality_id')->references('id')->on('countries');
