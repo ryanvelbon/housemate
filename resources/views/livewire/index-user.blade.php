@@ -1,4 +1,4 @@
-<div class="container lg:grid lg:grid-cols-4 gap-8 pt-8">
+<div class="container lg:grid lg:grid-cols-4 gap-8 py-8">
     <aside class="hidden lg:block lg:col-span-1 bg-gray-100 p-4">
         <h2>filters</h2>
         <form>
@@ -44,13 +44,7 @@
             @forelse($members as $member)
                 <a href="#">
                     <li class="bg-white shadow-md hover:shadow-lg">
-                        @if($member->sex)
-                            @if($member->sex === 'm')
-                                <img class="aspect-[3/2] w-full object-cover" src="{{ 'https://randomuser.me/api/portraits/men/' . $member->id % 100 . '.jpg' }}" alt="">
-                            @else
-                                <img class="aspect-[3/2] w-full object-cover" src="{{ 'https://randomuser.me/api/portraits/women/' . $member->id % 100 . '.jpg' }}" alt="">
-                            @endif
-                        @endif
+                        <img class="aspect-[3/2] w-full object-cover" src="{{ asset('storage/' . $member->avatar) }}" alt="">
                         <div class="p-3">
                             <div class="flex justify-between items-center">
                                 <span class="text-lg font-semibold leading-8 tracking-tight text-gray-900">{{ $member->name }}</span>
@@ -88,6 +82,8 @@
                 </div>
             @endforelse
         </ul>
-        {{ $members->links() }}
+        <div class="mt-8">
+            {{ $members->links() }}
+        </div>
     </main>
 </div>
