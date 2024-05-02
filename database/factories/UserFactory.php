@@ -16,7 +16,7 @@ class UserFactory extends Factory
     {
         $professions = collect(['Teacher', 'Student', 'Digital Marketer', 'Software Developer', 'Chef', 'Cashier', 'Receptionist', 'Retail', 'Dentist', 'Engineer']);
         $countries = collect([75, 82, 107, 182, 207, 232]);
-        $cities = collect(City::whereNotNull('order')->pluck('id'));
+        $cities = collect(City::whereNotNull('sort')->pluck('id'));
 
         return [
             'name' => fake()->firstName() . ' ' . fake()->lastName(),

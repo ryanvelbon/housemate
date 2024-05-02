@@ -25,7 +25,7 @@ class IndexUser extends Component
 
     public function mount(): void
     {
-        $this->countries = Country::whereNotNull('order')->get();
+        $this->countries = Country::whereNotNull('sort')->get();
         $this->cities = collect();
         $this->nationalities = Country::all();
     }
@@ -39,7 +39,7 @@ class IndexUser extends Component
 
     public function updatedCountry(): void
     {
-        $this->cities = City::whereNotNull('order')->where('country_id', $this->country)->get();
+        $this->cities = City::whereNotNull('sort')->where('country_id', $this->country)->get();
         $this->city = $this->cities->first()->id ?? null;
     }
 

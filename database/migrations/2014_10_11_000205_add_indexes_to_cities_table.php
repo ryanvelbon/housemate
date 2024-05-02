@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('cities', function (Blueprint $table) {
-            $table->index('order');
+            $table->index('sort');
             $table->index('country_code');
         });
     }
@@ -17,7 +17,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('cities', function (Blueprint $table) {
-            $table->dropIndex(['order']);
+            $table->dropIndex(['sort']);
             $table->dropIndex(['country_code']);
         });
     }

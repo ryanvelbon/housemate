@@ -35,7 +35,7 @@ class SearchForm extends Component
             $this->cities = City::query()
                 ->with('state')
                 ->withCount('listings')
-                ->whereNotNull('order')
+                ->whereNotNull('sort')
                 ->where(function ($query) use ($value) {
                     $query->where('name', 'like', '%' . $value . '%')
                           ->orWhereHas('state', function ($subQuery) use ($value) {
@@ -44,7 +44,7 @@ class SearchForm extends Component
                               $subQuery->where('name', 'like', $value . '%');
                           });
                 })
-                ->orderBy('order', 'asc')
+                ->orderBy('sort', 'asc')
                 ->take(10)
                 ->get();
         } else {

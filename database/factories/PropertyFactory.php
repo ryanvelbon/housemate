@@ -13,7 +13,7 @@ class PropertyFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'city_id' => City::whereNotNull('order')->inRandomOrder()->first()->id,
+            'city_id' => City::whereNotNull('sort')->inRandomOrder()->first()->id,
             'address' => str_replace("\n",", ",fake()->address()),
             'type' => PropertyType::random(),
             'size' => rand(50,200),

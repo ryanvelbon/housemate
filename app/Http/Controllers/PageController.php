@@ -12,7 +12,7 @@ class PageController extends Controller
     {
         $cities = Cache::remember('featured_cities', 60 * 24, function () {
             return City::query()
-                ->where('order', 1)
+                ->where('sort', 1)
                 ->with('country')
                 ->with('state')
                 ->withCount('listings')
